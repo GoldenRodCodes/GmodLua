@@ -1,0 +1,19 @@
+local fallDMG
+concommand.Add("sa_realdamage", function ( ply, cmd, args)
+if (args[1] == "1") then
+	fallDMG = true
+	end
+	print(fallDMG)
+end
+) 
+function GAMEMODE:GetFallDamage(ply,speed)
+		if (ply:GetUserGroup() == "superadmin" or ply:GetUserGroup() == "admin") then
+		return false
+	else
+		if (fallDMG == true ) then
+		return (speed/30)
+	else
+		return(10)
+		end
+	end
+end
